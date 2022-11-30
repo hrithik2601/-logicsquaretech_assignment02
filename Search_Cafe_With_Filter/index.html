@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>California Cafe Directory</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+
+  <body>
+    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12" id="header-wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="col-12" id="header">
+                <h2>California Cafe Directory</h2>
+              </div>
+                  <div class="col-12" id="search-wrapper">
+                <input type="text" placeholder="Search your favorite cafes!" id="cafeName" onkeyup="searchCafeName()">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12" id="table-wrapper">
+              <table  id="myTable">
+                <thead>
+                  <tr class="table100-head">
+                    <th class="column1">S No</th>
+                    <th class="column2">Cafe Name</th>
+                    <th class="column3">Address</th>
+                    <th class="column4">Postal Code</th>
+                    <th class="column5">Lat</th>
+                    <th class="column6">Long</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td class="column1">1</td>
+                      <td class="column2">Bazaar Cafe</td>
+                      <td class="column3">45250 Worth Avenue, Unit A</td>
+                      <td class="column4">20619</td>
+                      <td class="column5">36.1152</td>
+                      <td class="column6">117.521</td>
+                    </tr>
+                    <tr>
+                      <td class="column1">2</td>
+                      <td class="column2">Ashley's Cafe</td>
+                      <td class="column3">1B Macarthur Blvd</td>
+                      <td class="column4">20619</td>
+                      <td class="column5">38.1781 N</td>
+                      <td class="column6" >118.4171 W</td>
+                    </tr>
+                    <tr>
+                      <td class="column1">3</td>
+                      <td class="column2">Avenue Cafe</td>
+                      <td class="column3">7s Three Notch Road</td>
+                      <td class="column4">20619</td>
+                      <td class="column5">36.83</td>
+                      <td class="column6">119.6</td>
+                    </tr>
+                    <tr>
+                      <td class="column1">4</td>
+                      <td class="column2">Hi-Lo Cafe</td>
+                      <td class="column3">22803 Gunston Dr Lexington Park</td>
+                      <td class="column4">20688</td>
+                      <td class="column5">35.7788</td>
+                      <td class="column6">119.979</td>
+                    </tr>
+                    <tr>
+                      <td class="column1">5</td>
+                      <td class="column2">California Chicken Cafe</td>
+                      <td class="column3">1B Macarthur Blvd </td>
+                      <td class="column4">20619</td>
+                      <td class="column5">38.1781 N</td>
+                      <td class="column6">118.4171 W</td>
+                    </tr>
+                    <tr>
+                      <td class="column1">6</td>
+                      <td class="column2">Avenue Bakery Cafe</td>
+                      <td class="column3">60H Solomos Island Road</td>
+                      <td class="column4">20688</td>
+                      <td class="column5">36.7783</td>
+                      <td class="column6">119.4179</td>
+                    </tr>
+                    <tr>
+                      <td class="column1">7</td>
+                      <td class="column2">Philz Coffee</td>
+                      <td class="column3">225 Macarthur Blvd</td>
+                      <td class="column4">20687</td>
+                      <td class="column5">35.77813</td>
+                      <td class="column6">119.41791</td>
+                    </tr>
+                    
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    function  searchCafeName(){
+
+      let filter = document.getElementById('cafeName').value.toLowerCase();
+    
+      let myTable = document.getElementById('myTable');
+
+      let tr = myTable.getElementsByTagName('tr');
+
+      for(var i=0; i<tr.length; i++){
+        let td = tr[i].getElementsByTagName('td')[1];
+        if(td) {
+          let txtVal = td.textContent || td.innerHTML ;
+          if(txtVal.toLowerCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          }
+          else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+
+    }
+    </script>
+  </body>
+</html>
